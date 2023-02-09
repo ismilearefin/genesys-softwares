@@ -1,9 +1,10 @@
 import React from 'react';
+import HeroSection from './HoreSection/HeroSection';
 
 const Home = () => {
     return (
         <div>
-            Home Route
+            <HeroSection></HeroSection>
         </div>
     );
 };
