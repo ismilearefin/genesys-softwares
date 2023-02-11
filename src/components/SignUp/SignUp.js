@@ -22,7 +22,8 @@ const SignUp = () => {
             const user = userCredential.user;
             console.log(user)
             updateUserProfile(fullName)
-            navigate('/')
+            saveUserInfo(firstName, lastName, email, password)
+            
             // ...
           })
           .catch((error) => {
@@ -35,6 +36,30 @@ const SignUp = () => {
 
     }
 
+    const saveUserInfo = (firstName,lastName,email,password ) => {
+        const userInfo = {
+          firstName,
+          lastName,
+          email,
+          password
+        };
+        fetch('http://localhost:5000/users',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(userInfo)
+        })
+        .then((res)=>res.json())
+        .then(data=>{
+            console.log(data)
+            if(data.acknowledged){
+                alert('User information saved successfully')
+                navigate('/')
+            }
+        });
+
+    };
 
 
     return (
