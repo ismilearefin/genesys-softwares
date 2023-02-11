@@ -49,7 +49,7 @@ const Footer = () => {
                 </div>
                 <div className='relative w-full pt-[160px] mb-[20px]'>
                 <select className="absolute right-0 bottom-1 rounded-none border py-3 px-4 border-[#989795]  w-[222px] ">
-                    <option disabled className='text-[15px]'>United States (USD $)</option>
+                    <option  className='text-[15px]'>United States (USD $)</option>
                     <option>Bangladesh(TAKA)</option>
                     <option>India(RUPI)</option>
                 </select>
