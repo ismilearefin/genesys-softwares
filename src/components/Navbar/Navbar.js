@@ -25,7 +25,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end gap-[18px] text-xl">
                 <p><BiSearch></BiSearch></p>
-                <p><BiUser></BiUser></p>
+                <Link to='/signup'><BiUser></BiUser></Link>
                 <p><BsCart></BsCart></p>
             </div>
             </div>
