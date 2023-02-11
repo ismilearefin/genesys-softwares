@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { createContext } from 'react';
 import { app } from '../firebase/firebase';
 
@@ -47,13 +47,18 @@ const Contextprovidor = ({children}) => {
         
     }
 
+    function handlelogout(){
+        return signOut(auth)
+    }
+
       const userInfo = {
         user,
         loading,
         signup,
         login,
         updateUserProfile,
-        recoverPassword
+        recoverPassword,
+        handlelogout
       }
 
     return (

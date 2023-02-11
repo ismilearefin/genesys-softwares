@@ -1,14 +1,23 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/Frame.png'
-import { BiSearch, BiUser } from 'react-icons/bi'
+import { BiSearch, BiUser,BiLogOut } from 'react-icons/bi'
 import { BsCart } from 'react-icons/bs'
 import { Authcontext } from '../Contextprovidor/Contextprovidor';
 
 
 const Navbar = () => {
-    const {user} = useContext(Authcontext);
-    // console.log(user)
+    const {user, handlelogout} = useContext(Authcontext);
+    console.log(user)
+
+    function handleLogOut(){
+        handlelogout()
+        .then(() => {
+            // Sign-out successful.
+          }).catch((error) => {
+            // An error happened.
+          });
+    }
 
     return (
         <div className='w-full h-[100px] border grid items-center px-[91px]'>
@@ -31,6 +40,9 @@ const Navbar = () => {
                 <p><BiSearch></BiSearch></p>
                 <Link to='/signup'><BiUser></BiUser></Link>
                 <p><BsCart></BsCart></p>
+                {
+                    user?.uid && <BiLogOut onClick={handleLogOut}></BiLogOut>
+                }
             </div>
             </div>
         </div>
