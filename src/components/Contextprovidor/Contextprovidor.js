@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { createContext } from 'react';
 import { app } from '../firebase/firebase';
 
@@ -42,13 +42,18 @@ const Contextprovidor = ({children}) => {
             // ...
           });
     }
+    function recoverPassword(email){
+      return  sendPasswordResetEmail(auth,email)
+        
+    }
 
       const userInfo = {
         user,
         loading,
         signup,
         login,
-        updateUserProfile
+        updateUserProfile,
+        recoverPassword
       }
 
     return (
