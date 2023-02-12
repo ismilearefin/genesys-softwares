@@ -54,7 +54,6 @@ const SignUp = () => {
         .then(data=>{
             console.log(data)
             if(data.acknowledged){
-                alert('User information saved successfully')
                 navigate('/')
             }
         });

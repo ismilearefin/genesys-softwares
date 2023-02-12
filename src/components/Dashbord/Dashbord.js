@@ -45,18 +45,6 @@ console.log(data)
                         </tr>
                     ))
                 }
-                {/* <tr className='border-b-2 h-[75px]'>
-                <td>Witchy Woman</td>
-                <td className='text-center'>The Eagles</td>
-                <td className='text-center'>1972</td>
-                <td className='text-right pr-4'>1972</td>
-                </tr>
-                <tr className='border-b-2 h-[75px]'> 
-                <td>Shining Star</td>
-                <td className='text-center'>Earth, Wind, and Fire</td>
-                <td className='text-center '>1975</td>
-                <td className='text-right pr-4'>1975</td>
-                </tr> */}
             </tbody>
             </table>
             <div className='w-full border-b-2 h-[75px] grid items-center text-2xl'>

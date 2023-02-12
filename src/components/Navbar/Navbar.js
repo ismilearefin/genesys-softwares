@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/Frame.png'
 import { BiSearch, BiUser,BiLogOut } from 'react-icons/bi'
@@ -8,7 +8,14 @@ import { Authcontext } from '../Contextprovidor/Contextprovidor';
 
 const Navbar = () => {
     const {user, handlelogout} = useContext(Authcontext);
-    console.log(user)
+    const [userInfo, setuserInfo] = useState([]);
+    
+
+    useEffect(()=>{
+        fetch(`http://localhost:5000/users/info?email=${user?.email}`)
+        .then(res=>res.json())
+        .then(data=>setuserInfo(data))
+    },[user])
 
     function handleLogOut(){
         handlelogout()
@@ -18,18 +25,21 @@ const Navbar = () => {
             // An error happened.
           });
     }
-
+console.log(userInfo)
     return (
         <div className='w-full h-[100px] border grid items-center px-[91px]'>
             <div className="navbar bg-transparent">
             <div className="navbar-start lg:flex gap-6 text-sm leading-5">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="flex gap-6  menu-horizontal px-1">
                 <li><Link to='/'>HOME</Link></li>
                 <li>
                     <Link>SHOP</Link>
                 </li>
                 <li><Link>ABOUT US</Link></li>
                 <li><Link>CONTACT US</Link></li>
+                {
+                    userInfo[0]?.role === 'admin' && <li><Link to='/dashboard'>DASHBOARD</Link></li>
+                }
                 </ul>
             </div>
             <div className="navbar-center">
