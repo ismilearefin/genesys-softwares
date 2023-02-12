@@ -1,6 +1,6 @@
 ## Website Live Link
 
-(genesys-software)[https://genesys-softwares.onrender.com/]
+[genesys-software](https://genesys-softwares.onrender.com/)
 
 ## Admin
 
